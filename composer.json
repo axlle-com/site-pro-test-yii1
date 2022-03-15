@@ -1,0 +1,27 @@
+{
+    "type": "project",
+    "description": "The Yii Framework.",
+    "keywords": ["framework", "Yii"],
+    "license": "MIT",
+    "require": {
+        "php": "^7.4|^8.0",
+        "pragmarx/google2fa": "^8.0",
+        "chillerlan/php-qrcode": "^4.3"
+    }
+    ,
+    "require-dev": {
+        "roave/security-advisories": "dev-latest"
+    },
+    "autoload": {
+        "files": [
+            "protected/components/Functions.php"
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
