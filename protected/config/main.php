@@ -5,82 +5,98 @@
 
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
-return array(
+return [
     'basePath' => __DIR__ . DIRECTORY_SEPARATOR . '..',
-    'name' => 'My Web Application',
+    'name' => 'Yii Application Test',
 
     // preloading 'log' component
-    'preload' => array('log'),
+    'preload' => ['log'],
 
     // autoloading model and component classes
-    'import' => array(
-        'application.models.*',
+    'import' => [
+        'application.models.Form.*',
+        'application.models.DB.*',
         'application.components.*',
-    ),
+    ],
 
-    'modules' => array(
+    'modules' => [
         // uncomment the following to enable the Gii tool
-        /*
-        'gii'=>array(
-            'class'=>'system.gii.GiiModule',
-            'password'=>'Enter Your Password Here',
+        'gii' => [
+            'class' => 'system.gii.GiiModule',
+            'password' => '123',
             // If removed, Gii defaults to localhost only. Edit carefully to taste.
-            'ipFilters'=>array('127.0.0.1','::1'),
-        ),
-        */
-    ),
+            'ipFilters' => ['127.0.0.1', '::1'],
+        ],
+    ],
 
     // application components
-    'components' => array(
+    'components' => [
 
-        'user' => array(
+        'user' => [
             // enable cookie-based authentication
             'allowAutoLogin' => true,
-        ),
+        ],
+
+        'request' => [
+//            'enableCookieValidation' => true,
+//            'enableCsrfValidation' => true,
+        ],
 
         // uncomment the following to enable URLs in path-format
-
-        'urlManager' => array(
+        'urlManager' => [
             'urlFormat' => 'path',
             'showScriptName' => false,
-            'rules' => array(
+            'urlSuffix' => '.html',
+            'rules' => [
+                'gii' => 'gii',
+                'gii/<controller:\w+>' => 'gii/<controller>',
+                'gii/<controller:\w+>/<action:\w+>' => 'gii/<controller>/<action>',
+
                 '/' => 'site/index',
-                '<controller:\w+>/<id:\d+>' => '<controller>/view',
-                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
-            ),
-        ),
+                'ajax/<action:\w+>' => 'ajax/<action>',
+                '<action:\w+>' => 'site/<action>',
+//                '<controller:\w+>/<id:\d+>' => '<controller>/view',
+//                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+//                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+            ],
+        ],
 
         // database settings are configured in database.php
         'db' => require(__DIR__ . '/database.php'),
 
-        'errorHandler' => array(
-            // use 'site/error' action to display errors
+        'errorHandler' => [
             'errorAction' => 'site/error',
-        ),
+        ],
 
-        'log' => array(
+        'log' => [
             'class' => 'CLogRouter',
-            'routes' => array(
-                array(
+            'routes' => [
+                [
                     'class' => 'CFileLogRoute',
                     'levels' => 'error, warning',
-                ),
+                ],
                 // uncomment the following to show log messages on web pages
                 /*
                 array(
                     'class'=>'CWebLogRoute',
                 ),
                 */
-            ),
-        ),
+            ],
+        ],
 
-    ),
+        'clientScript' => [
+            'scriptMap' => [
+                'jquery.js' => false,
+            ],
+            'enableJavaScript' => false,
+        ],
+
+    ],
 
     // application-level parameters that can be accessed
     // using Yii::app()->params['paramName']
-    'params' => array(
+    'params' => [
         // this is used in contact page
         'adminEmail' => 'webmaster@example.com',
-    ),
-);
+    ],
+];

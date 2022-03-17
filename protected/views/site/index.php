@@ -1,20 +1,42 @@
 <?php
 /* @var $this SiteController */
 
-$this->pageTitle=Yii::app()->name;
+$this->pageTitle = Yii::app()->name;
 ?>
+<div>
+    <div class="media">
+        <img src="https://www.yiiframework.com/image/logo.svg" class="mr-3 logo">
+        <div class="media-body-f">
+            <h1 class="mt-0">Yii 1.1 Framework</h1>
+        </div>
+    </div>
+    <hr>
+    <ol>
+        <li>Добавлен композер</li>
+        <li>Добавлен и настроен Webpack</li>
+        <li>Отключены все дефолтные скрипты и валидация</li>
+        <li>Сделана своя AJAX валидация</li>
+    </ol>
+    <hr>
+    <h3 id="первый-запуск">Первый запуск</h3>
+    <ol start="0">
+        <li>В консоли command <code>git clone https://github.com/axlle-com/site-pro-test-yii1.git .</code> скачиваем репозиторий в текущую директорию</li>
+        <li>В консоли command <code>yiic firstdump up</code> создаем базу, на хосте это пропустить</li>
+        <li>В консоли command <code>yiic migrate</code> запускаем миграции - создаем таблицу пользователей</li>
+        <li>В консоли command <code>composer update</code> скачиваем все приложения</li>
+        <li>В консоли command <code>npm install</code> скачиваем и устанавливаем node_modules</li>
+        <li>В консоли command <code>npm run prod</code> собираем и упаковываем js скрипты</li>
+    </ol>
+    <hr>
+    <h3 id="формат-ответа-ajax">Формат ответа ajax</h3>
+    <pre><code class="language-json">{
+    &quot;status&quot;: 0|1, //Успех или нет
+    &quot;error&quot;: null|array, //Массив ошибок
+    &quot;message&quot;: null|string, //Сообщение
+    &quot;status_code&quot;: 200|404|403 ..., //Код ответа сервера
+    &quot;data&quot;: null|array //Массив данных
+}
+</code></pre>
 
-<h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
-
-<p>Congratulations! You have successfully created your Yii application.</p>
-
-<p>You may change the content of this page by modifying the following two files:</p>
-<ul>
-	<li>View file: <code><?php echo __FILE__; ?></code></li>
-	<li>Layout file: <code><?php echo $this->getLayoutFile('main'); ?></code></li>
-</ul>
-
-<p>For more details on how to further develop this application, please read
-the <a href="http://www.yiiframework.com/doc/">documentation</a>.
-Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
-should you have any questions.</p>
+    </pre>
+</div>

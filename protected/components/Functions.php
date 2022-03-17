@@ -1,4 +1,19 @@
 <?php
+$axBaseUrl = null;
+
+function axGetBaseUrl()
+{
+    global $axBaseUrl;
+    if ($axBaseUrl === null) {
+        $axBaseUrl = Yii::app()->request->baseUrl;
+    }
+    return $axBaseUrl;
+}
+
+function axAssetsFrontend(string $url): string
+{
+    return axGetBaseUrl() . '/resources/assets/frontend/' . ltrim($url, '/\\');
+}
 
 function axObjectToArray($array): ?array
 {
