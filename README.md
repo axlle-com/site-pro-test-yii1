@@ -5,7 +5,7 @@
 4. Сделана своя AJAX валидация
 ---
 ### Первый запуск
-0. В консоли command `git clone https://github.com/axlle-com/site-pro-test-yii1.git .` скачиваем репозиторий в текущую директорию
+0. В консоли command `git clone https://github.com/axlle-com/yii1-google-authenticator.git .` скачиваем репозиторий в текущую директорию
 1. В консоли command `yiic firstdump up` создаем базу, на хосте это пропустить
 2. В консоли command `yiic migrate` запускаем миграции - создаем таблицу пользователей
 3. В консоли command `composer update` скачиваем все приложения
